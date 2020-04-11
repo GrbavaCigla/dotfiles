@@ -1,0 +1,64 @@
+; ===============================================
+;     Made by Aleksa Ognjanovic (GrbavaCigla)
+;                    Dracula
+; ===============================================
+
+; Dracula palete
+[color]
+background   = #282a36
+current_line = #44475a
+foreground   = #f8f8f2
+comment      = #6272a4
+cyan         = #8be9fd
+green        = #50fa7b
+orange       = #ffb86c
+pink         = #ff79c6
+purple       = #bd93f9
+red          = #ff5555
+yellow       = #f1fa8c
+
+[bar/main]
+width = 100%
+height = 32
+
+background=${color.background}
+foreground=${color.foreground}
+
+border-top-size = 4
+border-top-color = ${color.current_line}
+bottom = false
+fixed-center = true
+
+font-0 = "Fantasque Sans Mono:pixelsize=10;3"
+font-1 = "Iosevka Nerd Font:pixelsize=13;3"
+
+modules-left = menu
+modules-right = date power
+
+[module/menu]
+type = custom/text
+content = 
+content-foreground = ${color.foreground}
+content-background=${color.current_line}
+content-padding = 2
+click-left = "$HOME/.config/polybar/scripts/menu.sh"
+click-middle = "$HOME/.config/polybar/scripts/menu-full.sh"
+click-right = "" ; ADD THIS
+
+[module/power]
+type = custom/text
+content = 
+content-padding = 2
+content-foreground = ${color.foreground}
+content-background = ${color.red}
+click-left = "$HOME/.config/polybar/scripts/powermenu.sh"
+click-right = "$HOME/.config/polybar/scripts/powermenu.sh"
+
+[module/date]
+type = internal/date
+interval = 30
+label =  %time%
+label-padding = 2
+label-background = ${color.orange}
+time =  %I:%M %p
+time-alt =  %Y-%m-%d

@@ -1,4 +1,5 @@
 syntax on
+set cursorline
 set number
 set tabstop=4
 set showcmd
@@ -37,4 +38,6 @@ call vundle#end()
 colorscheme dracula
 filetype plugin indent on
 
+map <C-n> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

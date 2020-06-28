@@ -32,12 +32,21 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'vim-syntastic/syntastic'
+"Plugin 'ycm-core/YouCompleteMe'
 Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'sickill/vim-monokai'
+"Plugin 'danilamihailov/vim-tips-wiki'
 call vundle#end()
 
-colorscheme dracula
+colorscheme monokai
 filetype plugin indent on
+
+set completeopt-=preview
+set completeopt+=popup
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 map <C-n> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!

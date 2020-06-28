@@ -3,3 +3,5 @@
 	name = Aleksa Ognjanovic
 [core]
 	editor = vim
+[color]
+	ui = true

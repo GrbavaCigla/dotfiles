@@ -1,0 +1,6 @@
+configuration {
+	theme: "cigla";
+	lines: 8;
+	modi:  "drun";
+	show-icons: true;
+}
